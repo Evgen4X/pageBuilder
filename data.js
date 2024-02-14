@@ -1,0 +1,4 @@
+const tags = ["a", "aside", "audio", "b", "br", "canvas", "code", "div", "embed", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "i", "img", "input", "label", "legend", "li", "main", "nav", "ol", "option", "p", "q", "section", "select", "span", "table", "td", "th", "tr", "u", "ul"];
+const shownTags = ["a", "aside", "b", "code", "div", "footer", "h1", "h2", "h3", "h4", "h5", "h6", "header", "i", "label", "main", "nav", "p", "q", "section", "span", "talbe", "u"];
+const closedTags = ["a", "aside", "audio", "b", "canvas", "code", "div", "embed", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "i", "label", "legend", "li", "main", "nav", "ol", "option", "p", "q", "section", "select", "span", "table", "td", "th", "tr", "u", "ul"];
+const inputTags = ["input", "select"];

@@ -1,0 +1,53 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+main {
+	width: 100vw;
+	height: 90vh;
+}
+
+#controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+	width: 100vw;
+}
+
+.controlsButton {
+	margin: 1vh;
+	width: 3vh;
+	height: 3vh;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 10%;
+	background-color: rgba(1, 1, 1, 0.1);
+}
+
+.dialogueScreen {
+	position: absolute;
+	border-radius: 5%;
+	padding: 1vh;
+	top: 5vh;
+	left: 5vw;
+	width: 90vw;
+	height: 90vh;
+	overflow: auto;
+	display: flex;
+	justify-content: start;
+	align-items: start;
+	flex-wrap: wrap;
+	background-color: rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 1vh rgba(0, 0, 0, 0.9);
+}
+
+.elementContainer {
+	width: 5vw;
+	height: 7vh;
+	margin: 1vh;
+	padding: 0.5vh;
+}
