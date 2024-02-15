@@ -7,7 +7,14 @@
 	</head>
 	<body>
 		<div id="controls"></div>
-		<main></main>
+		<main><div id="target">Sample text</div></main>
+
+		<button id="generate" onclick="generate()">Generate</button>
+
+		<div id="code">
+			<span id="code-code"></span>
+			<button onclick="document.getElementById('code').style.display = 'none';">Close</button>
+		</div>
 
 		<script src="data.js"></script>
 		<script src="css.js"></script>

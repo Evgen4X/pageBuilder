@@ -9,3 +9,99 @@ main {
 	width: 100vw;
 	height: 90vh;
 }
+
+#controls {
+	position: absolute;
+	top: 5vh;
+	left: 90vw;
+	width: 10vw;
+	height: 100vh;
+	display: flex;
+	justify-content: start;
+	align-items: start;
+	flex-direction: column;
+	transition: all 500ms;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border-left: 1px solid black;
+}
+
+#controls:hover,
+#controls:has(input:not([type="color"]):focus) {
+	left: 80vw;
+	width: 20vw;
+}
+
+#controld:hover > .container .container,
+#controls:has(input:not([type="color"]):focus) > .container .container {
+	width: 95%;
+}
+
+.container {
+	width: 95%;
+	margin: 0.5vh;
+	padding: 0.5vh;
+	display: flex;
+	justify-content: start;
+	align-items: start;
+	flex-direction: column;
+	border: 1px solid black;
+}
+
+.container .container {
+	width: 80%;
+}
+
+.container p {
+	padding: 0;
+	margin: 0;
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-weight: bolder;
+}
+
+.container div {
+	width: 100%;
+}
+
+input {
+	width: 80%;
+}
+
+a {
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+#target {
+	width: 5vw;
+	height: 5vw;
+	margin: 10vw;
+	border: 1px solid black;
+}
+
+#generate {
+	position: absolute;
+	left: 50vw;
+	bottom: 1vh;
+	transform: translateX(-50%);
+}
+
+#code {
+	position: absolute;
+	top: 5vh;
+	left: 5vw;
+	width: 90vw;
+	height: 90vh;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	font-weight: bolder;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
