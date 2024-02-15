@@ -115,13 +115,44 @@ class Select {
 	}
 }
 
+function cssToHtml(selector) {
+	if (selector == "*") {
+		return "div";
+	}
+	let part = selector.split(" ");
+	part = part[part.length - 1];
+	if (part.match(/#/)) {
+		if (part.startsWith("#")) {
+			return `div id="${part.slice(1)}"`;
+		} else {
+			return `${part.split("#")[0]} id="${part.split("#")[1]}"`;
+		}
+	} else if (part.match(/\./)) {
+		if (part.startsWith(".")) {
+			return `div class="${part.slice(1)}"`;
+		} else {
+			return `${part.split(".")[0]} class="${part.split(".")[1]}"`;
+		}
+	}
+	return part;
+}
+
 function generate() {
 	let codeSpan = document.getElementById("code-code");
-	codeSpan.innerHTML = `${document.getElementById("selector").value} {<br>`;
-	for (attribute in styles) {
-		codeSpan.innerHTML += `&nbsp;&nbsp;&nbsp;&nbsp;${attribute.trim()}: ${styles[attribute].trim().replace(/</g, "&lt;")};<br>`;
+	if (document.getElementById("style-type").value == "external") {
+		codeSpan.innerHTML = `${document.getElementById("selector").value} {<br>`;
+		for (attribute in styles) {
+			codeSpan.innerHTML += `&nbsp;&nbsp;&nbsp;&nbsp;${attribute.trim()}: ${styles[attribute].trim().replace(/</g, "&lt;")};<br>`;
+		}
+		codeSpan.innerHTML += "}";
+	} else {
+		codeSpan.innerHTML = `&lt;${cssToHtml(document.getElementById("selector").value)} style="`;
+		let i = 0;
+		for (attribute in styles) {
+			codeSpan.innerHTML += `${attribute.trim()}: ${styles[attribute].trim().replace(/</g, "&lt;")};${++i < Object.keys(styles).length ? "&nbsp;" : ""}`;
+		}
+		codeSpan.innerHTML += '">';
 	}
-	codeSpan.innerHTML += "}";
 
 	document.getElementById("code").style.display = "flex";
 }
@@ -136,8 +167,9 @@ const InnerHTML = new Struct("Sample text", "text", "innerHTML", Base.el, "Text 
 InnerHTML.input.el.onchange = () => {
 	Target.innerHTML = InnerHTML.input.el.value;
 };
-
+const StyleType = new Select(StyleTypes, "style-type", Base.el, "Style type", 1);
 const Selector = new Struct("*", "text", "selector", Base.el, "Selector");
+Selector.input.el.value = "*";
 
 const Display = new GroupDiv("Display");
 const Position = new Select(Positions, "position", Display.el, "Position", 5);
