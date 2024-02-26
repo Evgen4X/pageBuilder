@@ -5,7 +5,7 @@ body {
 	overflow: hidden;
 }
 
-main {
+body > main {
 	width: 100vw;
 	height: 90vh;
 }
@@ -47,7 +47,7 @@ main {
 
 .elementContainer {
 	width: 5vw;
-	height: 7vh;
+	height: 20vh;
 	margin: 1vh;
 	padding: 0.5vh;
 }
