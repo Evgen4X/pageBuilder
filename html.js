@@ -168,6 +168,12 @@ Generate.el.onclick = () => {
 			}
 		}
 
+		specials.forEach((attribute) => {
+			if(child[attribute]){
+				code += ` ${attribute}="${child[attribute]}"`;
+			}
+		})
+
 		code += ">";
 
 		if (closedTags.includes(tag)) {
@@ -213,7 +219,6 @@ tags.forEach((tag) => {
 			elementSettings.cache.el = e;
 		};
 		Created.push(e);
-		console.log(Created);
 	};
 });
 
@@ -300,8 +305,10 @@ document.querySelectorAll(".elementSetting").forEach((el) => {
 	el.onchange = () => {
 		if (el.id == "innerHTML") {
 			elementSettings.cache.el.el.childNodes[0].innerHTML = el.value;
-		} else {
+		} else if(!notStyles.includes(el.id)) {
 			elementSettings.cache.el.el.childNodes[0].style[el.id] = el.value;
+		} else {
+			elementSettings.cache.el.el.childNodes[0][el.id] = el.value;
 		}
 	};
 });
